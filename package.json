@@ -1,6 +1,6 @@
 {
   "name": "express-post-task-scheduler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight npm package to create and manage scheduled tasks using Express middleware. Configure tasks via POST requests and execute them at specified times seamlessly.",
   "homepage": "https://github.com/Siyu9412/express-post-task-scheduler",
   "license": "MIT",

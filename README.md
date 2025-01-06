@@ -51,7 +51,7 @@ SCEDULER_SECRENT="QlEgDY'2{h=NG!Tme^$K:n=S_7HJC'NY]SG0OA*Y%;~`K'VGDC%ol'M@~R1.PU
 
 5. Setting up the secret in request header
 
-![image-20250106142450397](/home/leo/Projects/express-post-task-scheduler/doc/README/image-20250106142450397.png)
+![image-20250106142450397](./doc/README/image-20250106142450397-1736196474945-6.png)
 
 6. Call route `/scheduler/task` with the data below to trigger the prepared task. The request data consists of four fixed fields:
    - **taskName**: it should be the same as the object key prepared in setTasks's array
@@ -74,7 +74,7 @@ SCEDULER_SECRENT="QlEgDY'2{h=NG!Tme^$K:n=S_7HJC'NY]SG0OA*Y%;~`K'VGDC%ol'M@~R1.PU
 }
 ```
 
-![image-20250106144448296](/home/leo/Projects/express-post-task-scheduler/doc/README/image-20250106144448296.png)
+![image-20250106144448296](./doc/README/image-20250106144448296-1736196491162-8.png)
 
 ## API and Filters
 

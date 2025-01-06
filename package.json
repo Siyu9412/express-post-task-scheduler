@@ -1,0 +1,61 @@
+{
+  "name": "express-post-task-scheduler",
+  "version": "1.0.0",
+  "description": "A lightweight npm package to create and manage scheduled tasks using Express middleware. Configure tasks via POST requests and execute them at specified times seamlessly.",
+  "homepage": "https://github.com/Siyu9412/express-post-task-scheduler",
+  "license": "MIT",
+  "keywords": [
+    "express",
+    "scheduler",
+    "task",
+    "cron",
+    "job-scheduler",
+    "express-tasks",
+    "task-manager",
+    "express-scheduler",
+    "timed-tasks",
+    "task-scheduling",
+    "job-execution",
+    "cron-jobs",
+    "express-utils"
+  ],
+  "files": [
+    "dist/"
+  ],
+  "exports": {
+    ".": {
+      "require": {
+        "default": "./dist/cjs/index.js",
+        "types": "./dist/cjs/@types/index.d.ts"
+      },
+      "import": {
+        "default": "./dist/esm/index.js",
+        "types": "./dist/esm/@types/index.d.ts"
+      }
+    }
+  },
+  "scripts": {
+    "build": "npm run init && tsc --project tsconfig.cjs.json && tsc --project tsconfig.json && tsx scripts/build.ts",
+    "init": "tsx scripts/init.ts && prisma generate && prisma db push",
+    "example": "tsx example/app.ts"
+  },
+  "author": "lsy747864185@gmail.com",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node-schedule": "^2.1.7",
+    "prisma": "^6.1.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@prisma/client": "6.1.0",
+    "@types/node": "^22.10.2",
+    "body-parser": "^1.20.3",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "http-status-codes": "^2.3.0",
+    "node-schedule": "^2.1.1",
+    "winston": "^3.17.0"
+  }
+}

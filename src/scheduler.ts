@@ -21,16 +21,16 @@ export function scheduleTask(
     const db = DB.init();
     await db.startTask(taskId);
 
-    for (const { id, value } of data) {
+    for (const { id: itemId, value: itemValue } of data) {
       try {
-        await executor(value);
-        await db.markItemSuccessful(taskId, id, JSON.stringify(value));
+        await executor(itemValue);
+        await db.markItemSuccessful(taskId, itemId, JSON.stringify(itemValue));
       } catch (e: any) {
         logger.error(e?.message);
         await db.markItemFailed(
           taskId,
-          id,
-          JSON.stringify(value),
+          itemId,
+          JSON.stringify(itemValue),
           e?.message || "unknown error"
         );
       }

@@ -1,6 +1,6 @@
 {
   "name": "express-post-task-scheduler",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A lightweight npm package to create and manage scheduled tasks using Express middleware. Configure tasks via POST requests and execute them at specified times seamlessly.",
   "homepage": "https://github.com/Siyu9412/express-post-task-scheduler",
   "license": "MIT",
@@ -37,7 +37,7 @@
   "scripts": {
     "build": "npm run init && tsc --project tsconfig.cjs.json && tsc --project tsconfig.json && tsx scripts/build.ts",
     "init": "tsx scripts/init.ts && prisma generate && prisma db push",
-    "example": "tsx example/app.ts"
+    "example": "npm run build && tsx example/app.ts"
   },
   "author": "lsy747864185@gmail.com",
   "devDependencies": {

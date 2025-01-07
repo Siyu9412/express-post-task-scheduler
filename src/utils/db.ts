@@ -119,7 +119,7 @@ export class DB {
    */
   async markItemSuccessful(taskId: number, itemId: string, itemValue: string) {
     await this.conn!.$executeRaw(Prisma.sql`
-      INSERT INTO Records (itemId, taskId, taskValue, finishTime)
+      INSERT INTO Records (itemId, taskId, itemValue, finishTime)
       VALUES (${itemId}, ${taskId}, ${itemValue}, ${Date.now()}); 
     `);
   }

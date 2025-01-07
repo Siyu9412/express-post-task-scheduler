@@ -115,6 +115,7 @@ export class DB {
    * Executing a task item successfully
    * @param taskId The primary key of a task
    * @param itemId The id of each item in the request body's data field
+   * @param itemValue The stringified value of the item
    */
   async markItemSuccessful(taskId: number, itemId: string, itemValue: string) {
     await this.conn!.$executeRaw(Prisma.sql`
@@ -127,11 +128,17 @@ export class DB {
    * Executing a task item failed
    * @param taskId The primary key of a task
    * @param itemId The id of each item in the request body's data field
+   * @param itemValue The stringified value of the item
    */
-  async markItemFailed(taskId: number, itemId: string, errorMessage: string) {
+  async markItemFailed(
+    taskId: number,
+    itemId: string,
+    itemValue: string,
+    errorMessage: string
+  ) {
     await this.conn!.$executeRaw(Prisma.sql`
-      INSERT INTO Records (itemId, taskId, error, finishTime)
-      VALUES (${itemId}, ${taskId}, ${errorMessage}, ${Date.now()}); 
+      INSERT INTO Records (itemId, taskId, itemValue, error, finishTime)
+      VALUES (${itemId}, ${taskId}, ${itemValue} ${errorMessage}, ${Date.now()}); 
     `);
   }
 

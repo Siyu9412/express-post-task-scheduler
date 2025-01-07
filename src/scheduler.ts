@@ -27,7 +27,12 @@ export function scheduleTask(
         await db.markItemSuccessful(taskId, id, JSON.stringify(value));
       } catch (e: any) {
         logger.error(e?.message);
-        await db.markItemFailed(taskId, id, e?.message || "unknown error");
+        await db.markItemFailed(
+          taskId,
+          id,
+          JSON.stringify(value),
+          e?.message || "unknown error"
+        );
       }
     }
     await db.finishTask(taskId);

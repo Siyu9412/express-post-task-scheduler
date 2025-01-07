@@ -138,7 +138,7 @@ export class DB {
   ) {
     await this.conn!.$executeRaw(Prisma.sql`
       INSERT INTO Records (itemId, taskId, itemValue, error, finishTime)
-      VALUES (${itemId}, ${taskId}, ${itemValue} ${errorMessage}, ${Date.now()}); 
+      VALUES (${itemId}, ${taskId}, ${itemValue}, ${errorMessage}, ${Date.now()}); 
     `);
   }
 

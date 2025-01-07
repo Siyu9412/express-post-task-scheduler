@@ -1988,6 +1988,7 @@ export namespace Prisma {
     id: number | null
     finishTime: Date | null
     itemId: string | null
+    itemValue: string | null
     taskId: number | null
     error: string | null
   }
@@ -1996,6 +1997,7 @@ export namespace Prisma {
     id: number | null
     finishTime: Date | null
     itemId: string | null
+    itemValue: string | null
     taskId: number | null
     error: string | null
   }
@@ -2004,6 +2006,7 @@ export namespace Prisma {
     id: number
     finishTime: number
     itemId: number
+    itemValue: number
     taskId: number
     error: number
     _all: number
@@ -2024,6 +2027,7 @@ export namespace Prisma {
     id?: true
     finishTime?: true
     itemId?: true
+    itemValue?: true
     taskId?: true
     error?: true
   }
@@ -2032,6 +2036,7 @@ export namespace Prisma {
     id?: true
     finishTime?: true
     itemId?: true
+    itemValue?: true
     taskId?: true
     error?: true
   }
@@ -2040,6 +2045,7 @@ export namespace Prisma {
     id?: true
     finishTime?: true
     itemId?: true
+    itemValue?: true
     taskId?: true
     error?: true
     _all?: true
@@ -2135,6 +2141,7 @@ export namespace Prisma {
     id: number
     finishTime: Date
     itemId: string
+    itemValue: string
     taskId: number
     error: string | null
     _count: RecordsCountAggregateOutputType | null
@@ -2162,6 +2169,7 @@ export namespace Prisma {
     id?: boolean
     finishTime?: boolean
     itemId?: boolean
+    itemValue?: boolean
     taskId?: boolean
     error?: boolean
     task?: boolean | TaskListDefaultArgs<ExtArgs>
@@ -2171,6 +2179,7 @@ export namespace Prisma {
     id?: boolean
     finishTime?: boolean
     itemId?: boolean
+    itemValue?: boolean
     taskId?: boolean
     error?: boolean
     task?: boolean | TaskListDefaultArgs<ExtArgs>
@@ -2180,6 +2189,7 @@ export namespace Prisma {
     id?: boolean
     finishTime?: boolean
     itemId?: boolean
+    itemValue?: boolean
     taskId?: boolean
     error?: boolean
   }
@@ -2200,6 +2210,7 @@ export namespace Prisma {
       id: number
       finishTime: Date
       itemId: string
+      itemValue: string
       taskId: number
       error: string | null
     }, ExtArgs["result"]["records"]>
@@ -2599,6 +2610,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Records", 'Int'>
     readonly finishTime: FieldRef<"Records", 'DateTime'>
     readonly itemId: FieldRef<"Records", 'String'>
+    readonly itemValue: FieldRef<"Records", 'String'>
     readonly taskId: FieldRef<"Records", 'Int'>
     readonly error: FieldRef<"Records", 'String'>
   }
@@ -2959,6 +2971,7 @@ export namespace Prisma {
     id: 'id',
     finishTime: 'finishTime',
     itemId: 'itemId',
+    itemValue: 'itemValue',
     taskId: 'taskId',
     error: 'error'
   };
@@ -3092,6 +3105,7 @@ export namespace Prisma {
     id?: IntFilter<"Records"> | number
     finishTime?: DateTimeFilter<"Records"> | Date | string
     itemId?: StringFilter<"Records"> | string
+    itemValue?: StringFilter<"Records"> | string
     taskId?: IntFilter<"Records"> | number
     error?: StringNullableFilter<"Records"> | string | null
     task?: XOR<TaskListScalarRelationFilter, TaskListWhereInput>
@@ -3101,6 +3115,7 @@ export namespace Prisma {
     id?: SortOrder
     finishTime?: SortOrder
     itemId?: SortOrder
+    itemValue?: SortOrder
     taskId?: SortOrder
     error?: SortOrderInput | SortOrder
     task?: TaskListOrderByWithRelationInput
@@ -3113,6 +3128,7 @@ export namespace Prisma {
     NOT?: RecordsWhereInput | RecordsWhereInput[]
     finishTime?: DateTimeFilter<"Records"> | Date | string
     itemId?: StringFilter<"Records"> | string
+    itemValue?: StringFilter<"Records"> | string
     taskId?: IntFilter<"Records"> | number
     error?: StringNullableFilter<"Records"> | string | null
     task?: XOR<TaskListScalarRelationFilter, TaskListWhereInput>
@@ -3122,6 +3138,7 @@ export namespace Prisma {
     id?: SortOrder
     finishTime?: SortOrder
     itemId?: SortOrder
+    itemValue?: SortOrder
     taskId?: SortOrder
     error?: SortOrderInput | SortOrder
     _count?: RecordsCountOrderByAggregateInput
@@ -3138,6 +3155,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Records"> | number
     finishTime?: DateTimeWithAggregatesFilter<"Records"> | Date | string
     itemId?: StringWithAggregatesFilter<"Records"> | string
+    itemValue?: StringWithAggregatesFilter<"Records"> | string
     taskId?: IntWithAggregatesFilter<"Records"> | number
     error?: StringNullableWithAggregatesFilter<"Records"> | string | null
   }
@@ -3216,6 +3234,7 @@ export namespace Prisma {
   export type RecordsCreateInput = {
     finishTime: Date | string
     itemId: string
+    itemValue: string
     error?: string | null
     task: TaskListCreateNestedOneWithoutRecordsInput
   }
@@ -3224,6 +3243,7 @@ export namespace Prisma {
     id?: number
     finishTime: Date | string
     itemId: string
+    itemValue: string
     taskId: number
     error?: string | null
   }
@@ -3231,6 +3251,7 @@ export namespace Prisma {
   export type RecordsUpdateInput = {
     finishTime?: DateTimeFieldUpdateOperationsInput | Date | string
     itemId?: StringFieldUpdateOperationsInput | string
+    itemValue?: StringFieldUpdateOperationsInput | string
     error?: NullableStringFieldUpdateOperationsInput | string | null
     task?: TaskListUpdateOneRequiredWithoutRecordsNestedInput
   }
@@ -3239,6 +3260,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     finishTime?: DateTimeFieldUpdateOperationsInput | Date | string
     itemId?: StringFieldUpdateOperationsInput | string
+    itemValue?: StringFieldUpdateOperationsInput | string
     taskId?: IntFieldUpdateOperationsInput | number
     error?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -3247,6 +3269,7 @@ export namespace Prisma {
     id?: number
     finishTime: Date | string
     itemId: string
+    itemValue: string
     taskId: number
     error?: string | null
   }
@@ -3254,6 +3277,7 @@ export namespace Prisma {
   export type RecordsUpdateManyMutationInput = {
     finishTime?: DateTimeFieldUpdateOperationsInput | Date | string
     itemId?: StringFieldUpdateOperationsInput | string
+    itemValue?: StringFieldUpdateOperationsInput | string
     error?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -3261,6 +3285,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     finishTime?: DateTimeFieldUpdateOperationsInput | Date | string
     itemId?: StringFieldUpdateOperationsInput | string
+    itemValue?: StringFieldUpdateOperationsInput | string
     taskId?: IntFieldUpdateOperationsInput | number
     error?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -3449,6 +3474,7 @@ export namespace Prisma {
     id?: SortOrder
     finishTime?: SortOrder
     itemId?: SortOrder
+    itemValue?: SortOrder
     taskId?: SortOrder
     error?: SortOrder
   }
@@ -3462,6 +3488,7 @@ export namespace Prisma {
     id?: SortOrder
     finishTime?: SortOrder
     itemId?: SortOrder
+    itemValue?: SortOrder
     taskId?: SortOrder
     error?: SortOrder
   }
@@ -3470,6 +3497,7 @@ export namespace Prisma {
     id?: SortOrder
     finishTime?: SortOrder
     itemId?: SortOrder
+    itemValue?: SortOrder
     taskId?: SortOrder
     error?: SortOrder
   }
@@ -3740,6 +3768,7 @@ export namespace Prisma {
   export type RecordsCreateWithoutTaskInput = {
     finishTime: Date | string
     itemId: string
+    itemValue: string
     error?: string | null
   }
 
@@ -3747,6 +3776,7 @@ export namespace Prisma {
     id?: number
     finishTime: Date | string
     itemId: string
+    itemValue: string
     error?: string | null
   }
 
@@ -3782,6 +3812,7 @@ export namespace Prisma {
     id?: IntFilter<"Records"> | number
     finishTime?: DateTimeFilter<"Records"> | Date | string
     itemId?: StringFilter<"Records"> | string
+    itemValue?: StringFilter<"Records"> | string
     taskId?: IntFilter<"Records"> | number
     error?: StringNullableFilter<"Records"> | string | null
   }
@@ -3844,12 +3875,14 @@ export namespace Prisma {
     id?: number
     finishTime: Date | string
     itemId: string
+    itemValue: string
     error?: string | null
   }
 
   export type RecordsUpdateWithoutTaskInput = {
     finishTime?: DateTimeFieldUpdateOperationsInput | Date | string
     itemId?: StringFieldUpdateOperationsInput | string
+    itemValue?: StringFieldUpdateOperationsInput | string
     error?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -3857,6 +3890,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     finishTime?: DateTimeFieldUpdateOperationsInput | Date | string
     itemId?: StringFieldUpdateOperationsInput | string
+    itemValue?: StringFieldUpdateOperationsInput | string
     error?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -3864,6 +3898,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     finishTime?: DateTimeFieldUpdateOperationsInput | Date | string
     itemId?: StringFieldUpdateOperationsInput | string
+    itemValue?: StringFieldUpdateOperationsInput | string
     error?: NullableStringFieldUpdateOperationsInput | string | null
   }
 

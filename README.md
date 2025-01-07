@@ -1,18 +1,24 @@
 # Express-Post-Task-Scheduler
+
 A lightweight npm package to create and manage scheduled tasks using Express middleware. Configure tasks via POST requests and execute them at specified times seamlessly.
 
 The task and its schedule time and data will be store in SQLite (Prisma ORM) database embedded, and the executing records can be fetched by apis.
 
 ## Latest Update Date
-2025-01-06
+
+2025-01-07
 
 ## Getting Started
+
 ### Environment
+
 * Node.js >= v20.15.0
-### Installing
-```shell
-npm i express-post-task-scheduler
-```
+  
+  ### Installing
+  
+  ```shell
+  npm i express-post-task-scheduler
+  ```
 
 ## Basic Usage
 
@@ -46,12 +52,12 @@ app.listen(3000, () => {
 4. Creating an variable in .env file, it will be used in the request header for validation, for example
 
 ```
-SCEDULER_SECRENT="QlEgDY'2{h=NG!Tme^$K:n=S_7HJC'NY]SG0OA*Y%;~`K'VGDC%ol'M@~R1.PUR"
+SCEDULER_SECRET="QlEgDY'2{h=NG!Tme^$K:n=S_7HJC'NY]SG0OA*Y%;~`K'VGDC%ol'M@~R1.PUR"
 ```
 
 5. Setting up the secret in request header
 
-![image-20250106142450397](./doc/README/image-20250106142450397-1736196474945-6.png)
+![](https://raw.githubusercontent.com/Siyu9412/pic/master/img/image-20250106142450397-1736196474945-6.png)
 
 6. Call route `/scheduler/task` with the data below to trigger the prepared task. The request data consists of four fixed fields:
    - **taskName**: it should be the same as the object key prepared in setTasks's array
@@ -74,7 +80,7 @@ SCEDULER_SECRENT="QlEgDY'2{h=NG!Tme^$K:n=S_7HJC'NY]SG0OA*Y%;~`K'VGDC%ol'M@~R1.PU
 }
 ```
 
-![image-20250106144448296](./doc/README/image-20250106144448296-1736196491162-8.png)
+![](https://raw.githubusercontent.com/Siyu9412/pic/master/img/image-20250106144448296-1736196491162-8.png)
 
 ## API and Filters
 
@@ -132,7 +138,7 @@ SCEDULER_SECRENT="QlEgDY'2{h=NG!Tme^$K:n=S_7HJC'NY]SG0OA*Y%;~`K'VGDC%ol'M@~R1.PU
 - method: GET
 
 - filter conditions fields:
-
+  
   - status: 
     - waiting: the tasks wait for being executed at their executed time
     - executing: the tasks is executing and have not finished yet
@@ -197,6 +203,7 @@ SCEDULER_SECRENT="QlEgDY'2{h=NG!Tme^$K:n=S_7HJC'NY]SG0OA*Y%;~`K'VGDC%ol'M@~R1.PU
 **Delete finished task or cancel waiting task, the task records will also be removed from database**
 
 - route: `/scheduler/task/:id`
+
 - method: DELETE
 
 - response example (The response code may be 200, but if the data.count is 0, there's no task removed): 
@@ -213,11 +220,13 @@ SCEDULER_SECRENT="QlEgDY'2{h=NG!Tme^$K:n=S_7HJC'NY]SG0OA*Y%;~`K'VGDC%ol'M@~R1.PU
 **List Records (The executor's implement result)** 
 
 - route: `/scheduler/record`
+
 - method: GET
+
 - example filter query: `?filter={"finish": {"after": "2025-01-03 14:50"}, "status": "failed", "taskId": 1}`
 
 - filter conditions fields:
-
+  
   - taskName: the sub string included in the tasks's taskName and taskDescription field
   - taskId: the primary key of the task
   - status: two options, successful and failed. If there's any exception raised by executor, the response's object error field will store the error message
@@ -279,5 +288,3 @@ SCEDULER_SECRENT="QlEgDY'2{h=NG!Tme^$K:n=S_7HJC'NY]SG0OA*Y%;~`K'VGDC%ol'M@~R1.PU
       ]
   }
   ```
-
-  

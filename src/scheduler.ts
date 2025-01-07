@@ -24,7 +24,7 @@ export function scheduleTask(
     for (const { id, value } of data) {
       try {
         await executor(value);
-        await db.markItemSuccessful(taskId, id);
+        await db.markItemSuccessful(taskId, id, JSON.stringify(value));
       } catch (e: any) {
         logger.error(e?.message);
         await db.markItemFailed(taskId, id, e?.message || "unknown error");

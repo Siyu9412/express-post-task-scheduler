@@ -116,10 +116,10 @@ export class DB {
    * @param taskId The primary key of a task
    * @param itemId The id of each item in the request body's data field
    */
-  async markItemSuccessful(taskId: number, itemId: string) {
+  async markItemSuccessful(taskId: number, itemId: string, itemValue: string) {
     await this.conn!.$executeRaw(Prisma.sql`
-      INSERT INTO Records (itemId, taskId, finishTime)
-      VALUES (${itemId}, ${taskId}, ${Date.now()}); 
+      INSERT INTO Records (itemId, taskId, taskValue, finishTime)
+      VALUES (${itemId}, ${taskId}, ${itemValue}, ${Date.now()}); 
     `);
   }
 
@@ -221,6 +221,8 @@ export class DB {
         id: true,
         error: true,
         finishTime: true,
+        itemId: true,
+        itemValue: true,
         task: {
           select: {
             id: true,

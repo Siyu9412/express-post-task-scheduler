@@ -8,7 +8,7 @@ import { StatusCodes } from "http-status-codes";
 export function secretGuard(req: Request, _res: Response, next: NextFunction) {
   const res = _res as IExtendResponse;
   const requestSecret = req.headers.secret;
-  if (requestSecret === process.env.SCEDULER_SECRENT) {
+  if (requestSecret === process.env.SCEDULER_SECRET) {
     next();
   } else {
     res.jr({

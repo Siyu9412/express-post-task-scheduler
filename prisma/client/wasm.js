@@ -128,6 +128,7 @@ exports.Prisma.RecordsScalarFieldEnum = {
   id: 'id',
   finishTime: 'finishTime',
   itemId: 'itemId',
+  itemValue: 'itemValue',
   taskId: 'taskId',
   error: 'error'
 };

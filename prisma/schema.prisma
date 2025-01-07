@@ -27,6 +27,7 @@ model Records {
   id         Int      @id @default(autoincrement())
   finishTime DateTime
   itemId     String
+  itemValue  String
   task       TaskList @relation(fields: [taskId], references: [id], onDelete: Cascade)
   taskId     Int
   error      String?

@@ -1,8 +1,8 @@
-if (process.env.CI) {
-  console.log("Skipping postinstall script in CI environment.");
-  process.exit(0);
-}
-
 import { execSync } from "child_process";
+import path from "path";
 
-execSync("npx prisma db push --schema ../../prisma/schema.prisma");
+const schemaPath = path.resolve(
+  path.join(path.dirname(path.dirname(__dirname)), "prisma", "schema.prisma")
+);
+
+execSync(`npx prisma db push --schema ${schemaPath}`);

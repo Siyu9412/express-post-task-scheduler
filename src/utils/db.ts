@@ -1,9 +1,9 @@
-import { Prisma, PrismaClient } from "../../prisma/client";
 import { IRecordFilter, ITaskFilter } from "../@types/task";
 import { getRecordQueryConditions, getTasksQueryConditions } from "./filter";
 import { tasks } from "../tasks";
 import { scheduleTask } from "../scheduler";
 import { ScheduleJobs } from "../scheduleJobs";
+import { Prisma, PrismaClient } from "@prisma/client";
 
 /**
  * CRUD tasks in the sqlite db file
